@@ -1,12 +1,17 @@
-'use client'
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center "
-    onClick={() => toast.success('Hello World!')}>
-      <Button>Click me</Button>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="font-semibold text-2xl">
+        Welcome To Resonance
+      </h1>
+      <div className="flex items-center justify-center">
+        <UserButton/>
+        <OrganizationSwitcher/>
+      </div>
     </div>
-  );
+  )
 }
+
+export default Home
