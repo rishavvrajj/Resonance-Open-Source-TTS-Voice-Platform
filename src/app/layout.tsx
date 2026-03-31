@@ -3,6 +3,8 @@ import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+
 
 const inter = Inter({
   variable: "--font-sans",
@@ -25,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
-      <body
-        className={`${inter.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Toaster />
-      </body>
-    </html>
+      <html lang="en" className={cn("font-sans", inter.variable)}>
+        <body
+          className={`${inter.variable} ${geistMono.variable} antialiased`}
+        >
+          <ClerkProvider>
+            {children}
+            <Toaster />
+          </ClerkProvider>
+        </body>
+      </html>
   );
 }
