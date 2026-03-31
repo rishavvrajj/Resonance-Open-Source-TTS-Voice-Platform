@@ -9,7 +9,7 @@ export default function OrgSelectionPage () {
                 afterSelectOrganizationUrl="/"
                 appearance={{
                     elements : {
-                        rootbox : "mex-auto",
+                        rootBox : "mx-auto",
                         card : "shadow-lg"
                     },
                 }}

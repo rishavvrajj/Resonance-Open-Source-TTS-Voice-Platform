@@ -1,9 +1,9 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 import { NextResponse } from "next/server";
 
-const isPublicRoute = createRouteMatcher(["/signin(.*)","/signup(.*)",]);
+const isPublicRoute = createRouteMatcher(["/sign-in(.*)","/sign-up(.*)",]);
 
-const isOrgSelectionRoute = createRouteMatcher(["/organization-selection(.*)"])
+const isOrgSelectionRoute = createRouteMatcher(["/org-selection(.*)"])
 
 export default clerkMiddleware(async (auth, req) => {
     const { userId, orgId } = await auth();
@@ -12,12 +12,12 @@ export default clerkMiddleware(async (auth, req) => {
     if (isPublicRoute(req)) return NextResponse.next();
     if (!userId) { await auth.protect(); }
 
-    if (url.pathname.startsWith("/organization-selection")) {
-        return NextResponse.next();
+    if (isOrgSelectionRoute(req)) {
+          return NextResponse.next();
     }
 
     if (userId && !orgId) {
-        url.pathname = "/organization-selection";
+        url.pathname = "/org-selection";
         return NextResponse.redirect(url);
     }
 
@@ -32,4 +32,3 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 }
-
