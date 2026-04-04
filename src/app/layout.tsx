@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
       <html lang="en" className={cn("font-sans", istok.variable)}>
         <body
-          className={`${inter.variable} ${geistMono.variable} antialiased`}
+          className={`${geistMono.variable} antialiased`}
         >
           <ClerkProvider>
             {children}
