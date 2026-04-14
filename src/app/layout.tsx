@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter, Istok_Web} from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from '@clerk/nextjs'
+import { Tooltip } from "radix-ui";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const istok = Istok_Web({
-  variable: '--font-sans',  // Fixed: 'Variable' → 'variable'
-  weight: '400',            // Added: Specifies available weight
+const outfit = Outfit({            // Added: Specifies available weight
   subsets: ['latin']
-});
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -32,13 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en" className={cn("font-sans", istok.variable)}>
+      <html lang="en" className={cn("font-sans", outfit.className)}>
         <body
-          className={`${geistMono.variable} antialiased`}
+          className={`${outfit.className}antialiased`}
         >
           <ClerkProvider>
-            {children}
-            <Toaster />
+            <TooltipProvider>
+              {children}
+              <Toaster />
+            </TooltipProvider>
           </ClerkProvider>
         </body>
       </html>
