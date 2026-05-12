@@ -216,23 +216,23 @@ async function seedSystemVoice(name: string) {
   }
 
   const meta = systemVoiceMetadata[name];
-  
+
   const voice = await prisma.voice.create({
-      data: {
-          name,
-          variant: "SYSTEM",
-          orgId: null,
-          ...(meta && {
-              description: meta.description,
-              category: meta.category,
-              language: meta.language,
-            }),
-        },
-        select: {
-            id: true,
-        },
-    });
-    
+    data: {
+      name,
+      variant: "SYSTEM",
+      orgId: null,
+      ...(meta && {
+        description: meta.description,
+        category: meta.category,
+        language: meta.language,
+      }),
+    },
+    select: {
+      id: true,
+    },
+  });
+
   const r2ObjectKey = `voices/system/${voice.id}`;
 
   try {
@@ -247,7 +247,7 @@ async function seedSystemVoice(name: string) {
         id: voice.id,
       },
       data: {
-        r2ObjectKey: `voices/system/${voice.id}`,
+        r2ObjectKey,
       },
     });
   } catch (error) {
