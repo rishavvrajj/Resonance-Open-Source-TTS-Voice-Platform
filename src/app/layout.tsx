@@ -31,10 +31,11 @@ export default function RootLayout({
       <TRPCReactProvider>
         <html lang="en" className={cn("font-sans", outfit.className)}>
           <body
-            className={`${outfit.className}antialiased`}
+            className={`${outfit.className} antialiased`}
           >
             <TooltipProvider>
               {children}
+              <Analytics />
               <SpeedInsights />
               <Toaster />
             </TooltipProvider>

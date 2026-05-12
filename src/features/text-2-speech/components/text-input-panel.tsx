@@ -33,7 +33,7 @@ export function TextInputPanel() {
                 )}
             </form.Field>
             { /*Bottom Fade Overlay*/ }
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-linear-to-t from-background to-transparent" />
         </div>
         { /*Action Bar*/ }
         <div className="shrink-0 p-4 lg:p-6">
