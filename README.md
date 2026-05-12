@@ -1,4 +1,4 @@
-# Resonance – Full‑Stack ElevenLabs‑Style AI Voice Platform
+# Resonance – Full‑Stack AI Voice Platform
 
 Resonance is a full‑stack AI voice platform inspired by the ElevenLabs product and built following the **“Build and Deploy a Full Stack ElevenLabs Clone”** workshop by Code with Antonio. It combines a modern Next.js frontend with a type‑safe backend, database, and AI text‑to‑speech pipeline.
 
